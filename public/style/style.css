@@ -59,6 +59,11 @@ p{padding:0;margin:0;}
 #nav_section_top .second_level > li:hover .subCategory{
   display:block;
 }
+#banner{
+  width: 1120px;
+  margin: auto;
+  text-align: center;
+}
 .subCategory {
   left: 150px;
   position: absolute;
@@ -78,15 +83,16 @@ p{padding:0;margin:0;}
 
 #nav_section_left {
   display: inline-block;
-  padding: 15px 20px;
-  width: 200px;
+  padding: 15px 10px;
+  width: 250px;
+  float: left;
 }
 #nav_section_left li {
   background:url(/statics/images/dian1.png) no-repeat 3px 3px;
   background-color: #fff;
   border-bottom: 5px solid #eee;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   height: 30px;
   line-height: 30px;
   padding-left:30px
@@ -100,7 +106,6 @@ p{padding:0;margin:0;}
   display: inline-block;
   padding: 15px 0;
   vertical-align: top;
-  width: 875px;
 }
 
 .productList .item {
