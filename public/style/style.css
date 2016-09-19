@@ -1,0 +1,132 @@
+body,html{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+body{
+  background-color:#b8b8b8;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+p{padding:0;margin:0;}
+.clearfix:after{
+  content:" ";
+  clear:both;
+  display:block;
+}
+#page {
+  background-color: #e6e6e6;
+  margin: auto;
+  width: 1120px;
+}
+#nav_section_top .fist_level{
+  background: url("/statics/images/cbg.png") no-repeat;
+  color: #fff;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+}
+
+#nav_section_top .fist_level > li {
+  background: url("/statics/images/caijg.png") no-repeat right 50%;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  width: 150px;
+  position:relative;
+}
+#nav_section_top .fist_level > li:hover .category{
+  display: block;
+}
+#nav_section_top .fist_level .category {
+  background-color: rgb(188, 158, 78);
+  position: absolute;
+  width: 100%;
+  display:none;
+  z-index:1000;
+}
+#nav_section_top .second_level > li {
+  border: 1px solid tan;
+  position:relative;
+}
+#nav_section_top .second_level > li:hover .subCategory{
+  display:block;
+}
+.subCategory {
+  left: 150px;
+  position: absolute;
+  text-align: left;
+  top: 0;
+  width: 775px;
+  display:none;
+}
+.subCategory a{
+  margin-right:15px;
+}
+.subCategory > div {
+  background-color: rgb(188, 158, 78);
+  display: inline-block;
+  padding: 0 20px;
+}
+
+#nav_section_left {
+  display: inline-block;
+  padding: 15px 20px;
+  width: 200px;
+}
+#nav_section_left li {
+  background:url(/statics/images/dian1.png) no-repeat 3px 3px;
+  background-color: #fff;
+  border-bottom: 5px solid #eee;
+  cursor: pointer;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  padding-left:30px
+}
+
+#nav_section_left li.active {
+  background-image:url("/statics/images/dian2.png");
+}
+
+#main {
+  display: inline-block;
+  padding: 15px 0;
+  vertical-align: top;
+  width: 875px;
+}
+
+.productList .item {
+  display: inline-block;
+  margin: 0 25px 20px;
+  text-align: center;
+  font-size:12px;
+  width: 210px;
+  position:relative;
+}
+.productList .item > img {
+  height: 165px;
+  width: 210px;
+}
+
+.bg_over {
+  background: rgba(0, 0, 0, 0) url("/statics/images/proqian.png") no-repeat scroll 0 0;
+  height: 165px;
+  position: absolute;
+  top: 0;
+  width: 210px;
+}
+
+#footer {
+  background-color: #000;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}

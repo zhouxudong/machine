@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  #page
+    #header
+      img(src="statics/images/logo.png")
+
+    #content.clearfix
+      #nav_section_top
+        ul.fist_level.clearfix
+          li ABOUT US
+          li PRODUCTS
+            div.category
+              ul.second_level
+                li 吹膜机
+                  div.subCategory
+                    div
+                      a(href="#") 农膜
+                      a(href='#') 地膜
+                li 流毛机
+                  div.subCategory
+                    div
+                      a(href="#") 缠绕膜
+                      a(href='#') PVC保鲜膜
+                li 制袋机
+                  div.subCategory
+                    div
+                      a(href="#") 复合膜制袋机
+                      a(href='#') 热边封制袋机
+
+          li NEWS
+          li SOLUTION
+          li CONTACT US
+      #nav_section_left
+        ul
+          li.active 吹膜机
+          li 流毛机
+          li 印刷机
+          li 分切机
+          li 复会机
+          li 制袋机
+      #main
+        img(src="/statics/images/bq_products.png")
+        .productList
+          .item
+            .bg_over
+              img(src="/statics/images/1-1.jpg")
+              p CATL-520 Automatic Laminating Machine
+          .item
+            .bg_over
+              img(src="/statics/images/1-1.jpg")
+              p CATL-520 Automatic Laminating Machine
+          .item
+            .bg_over
+              img(src="/statics/images/1-1.jpg")
+              p CATL-520 Automatic Laminating Machine
+
