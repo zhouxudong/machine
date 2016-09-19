@@ -7,7 +7,13 @@ var getCategoryList = product_module.getCategoryList;
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  res.render('index', { title: 'Express' });
+  getCategoryList(0).then(function(){
+    var response_data = {};
+    response_data['title'] = "Best CHINA machine";
+    response_data["categorys"] = arguments[0]
+    res.render('index', response_data);
+  })
+
 
 });
 

@@ -12,6 +12,8 @@ block content
           li PRODUCTS
             div.category
               ul.second_level
+                each category,i in categorys
+                  li #{category.name}
                 li 吹膜机
                   div.subCategory
                     div
@@ -33,12 +35,11 @@ block content
           li CONTACT US
       #nav_section_left
         ul
-          li.active 吹膜机
-          li 流毛机
-          li 印刷机
-          li 分切机
-          li 复会机
-          li 制袋机
+          each category,i in categorys
+            if(i == 0)
+              li.active #{category.name}
+            else
+              li #{category.name}
       #main
         img(src="/statics/images/bq_products.png")
         .productList

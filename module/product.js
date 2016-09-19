@@ -1,9 +1,10 @@
 var conn = require("./dbconn");
 
 var getCategoryList = function(pid){
-    var sql = `select * from category where pid = ${pid}`;
+    console.log(pid);
+    var sql = `select * from category where parent_id = ${pid}`;
 
-    return Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         try {
             conn(sql, rows => {
                 resolve(rows);
