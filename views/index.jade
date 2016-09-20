@@ -39,11 +39,14 @@ block content
           each product,i in products
             .item
               .bg_over
-                img(src="http://47.89.186.41#{product.thumb}")
-                if(lg == "en")
-                  p #{product.name_en}
-                else if(lg == "es")
-                  p #{product.name_es}
-                else
-                  p #{product.name}
+                .imgGroup
+                  .absBg
+                  .retBg
+                    img(src="http://47.89.186.41#{product.thumb}" width="180px" height="135px")
+                    if(lg == "en")
+                      p #{product.name_en}
+                    else if(lg == "es")
+                      p #{product.name_es}
+                    else
+                      p #{product.name}
 
