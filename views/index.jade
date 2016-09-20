@@ -51,10 +51,11 @@ block content
       #main
         img(src="/statics/images/bq_products.png")
         .productList
-          .item
-            .bg_over
-              img(src="/statics/images/1-1.jpg")
-              p CATL-520 Automatic Laminating Machine
+          each product,i in products
+            .item
+              .bg_over
+                img(src="#{product.thumb}")
+                p #{product.name}
           .item
             .bg_over
               img(src="/statics/images/1-1.jpg")
