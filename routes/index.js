@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
         var categorys = resolveObj.data;
         Promise.all([
           getCategoryList(0),
-          getProductsByCategoryId(101)
+          getProductsByCategoryId(2)
         ]).then(function(callbacks){
           var response_data = {};
           response_data['title'] = "Best CHINA machine";
