@@ -54,7 +54,7 @@ var getCategorySubs = function(category_id) {
                             callFn(categorys,item.id,global);
                         })
                     }else{
-                        global.returnArr.push(category_id);
+                        if(category_id) global.returnArr.push(category_id);
                     }
                 })(categorys, category_id, global)
 
