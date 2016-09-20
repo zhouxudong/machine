@@ -1,6 +1,7 @@
 $("#nav_section_left").on("click","li",function(){
     var id = $(this).data("id");
-
+    $("#nav_section_left li").removeClass("active");
+    $(this).addClass("active");
     var lg = $("#currLg").val()
     $.ajax({
         url: API.getProductsByCategoryId,
