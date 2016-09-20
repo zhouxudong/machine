@@ -47,10 +47,11 @@ p{padding:0;margin:0;}
 }
 #nav_section_top .fist_level .category {
   background-color: rgb(188, 158, 78);
+  display: none;
+  font-size: 12px;
   position: absolute;
-  width: 100%;
-  display:none;
-  z-index:1000;
+  width: 200%;
+  z-index: 1000;
 }
 #nav_section_top .second_level > li {
   border: 1px solid tan;
@@ -95,7 +96,8 @@ p{padding:0;margin:0;}
   font-size: 12px;
   height: 30px;
   line-height: 30px;
-  padding-left:30px
+  padding-left:30px;
+  overflow: hidden;
 }
 
 #nav_section_left li.active {
