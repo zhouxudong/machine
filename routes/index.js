@@ -21,7 +21,7 @@ var getIndexResponse = function (res,language){
           response_data['title'] = "Best CHINA machine";
           response_data["categorys"] = callbacks[0];
           response_data["products"] = callbacks[1];
-          response_data["lg"] = "cn";
+          response_data["lg"] = language;
           res.render("index",response_data);
         })
 
