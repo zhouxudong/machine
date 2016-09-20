@@ -28,11 +28,11 @@ block content
         ul
           each category,i in categorys
             if(lg == "en")
-              li #{category.name_en}
+              li(data-id="#{category.id}") #{category.name_en}
             else if(lg == 'es')
-              li #{category.name_es}
+              li(data-id="#{category.id}") #{category.name_es}
             else
-              li #{category.name}
+              li(data-id="#{category.id}") #{category.name}
       #main
         img(src="/statics/images/bq_products.png")
         .productList
