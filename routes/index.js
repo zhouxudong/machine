@@ -8,9 +8,7 @@ var getCategorySubs = category_module.getCategorySubs;
 var getCategoryList = category_module.getCategoryList;
 var getProductsByCategoryId = product_module.getProductsByCategoryId;
 
-
-router.get('/', function(req, res, next) {
-
+var getIndexResponse = function (res,language){
   getALLCategorys()
       .then(function(resolveObj){
 
@@ -28,34 +26,20 @@ router.get('/', function(req, res, next) {
         })
 
       }).catch(function(){
-        res.json({error_code:123})
-      })
+    res.json({error_code:123})
+  })
+}
+router.get('/', function(req, res, next) {
+  getIndexResponse(res,"cn");
+
 });
 /* GET home page. */
 router.get('/en', function(req, res, next) {
-
-  getCategoryList(0).then(function(){
-    var response_data = {};
-    response_data['title'] = "Best CHINA machine";
-    response_data["categorys"] = arguments[0];
-    response_data["lg"] = "en";
-    res.render('index', response_data);
-  })
-
-
+  getIndexResponse(res,"en");
 });
 /* GET home page. */
 router.get('/es', function(req, res, next) {
-
-  getCategoryList(0).then(function(){
-    var response_data = {};
-    response_data['title'] = "Best CHINA machine";
-    response_data["categorys"] = arguments[0];
-    response_data["lg"] = "es";
-    res.render('index', response_data);
-  })
-
-
+  getIndexResponse(res,"es");
 });
 
 module.exports = router;
