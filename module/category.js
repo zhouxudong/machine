@@ -48,11 +48,13 @@ var getCategorySubs = function(category_id) {
                         }
                     })
 
-                    global.returnArr = global.returnArr.concat(subCategorys);
                     if(subCategorys.length > 0){
+                        global.returnArr = global.returnArr.concat(subCategorys);
                         subCategorys.forEach(function(item,i){
                             callFn(categorys,item.id,global);
                         })
+                    }else{
+                        global.returnArr.push(category_id);
                     }
                 })(categorys, category_id, global)
 

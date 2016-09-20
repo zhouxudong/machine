@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/statics",express.static(path.join(__dirname, 'public')));
+app.use("/statics",express.static(path.join(__dirname, 'conf')));
 
 app.use('/', routes);
 app.use('/users', users);

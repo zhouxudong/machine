@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var product_module = require("../module/product");
 var category_module = require("../module/category");
+var API = require("../conf/API");
 
 var getALLCategorys = category_module.getALLCategorys;
 var getCategorySubs = category_module.getCategorySubs;
@@ -22,6 +23,7 @@ var getIndexResponse = function (res,language){
           response_data["categorys"] = callbacks[0];
           response_data["products"] = callbacks[1];
           response_data["lg"] = language;
+          response_data["api"] = API;
           res.render("index",response_data);
         })
 
@@ -31,7 +33,16 @@ var getIndexResponse = function (res,language){
 }
 router.get('/', function(req, res, next) {
   getIndexResponse(res,"cn");
-
+});
+router.get("/api/get_products", (req, res, next) => {
+  var category_id = req.param("category_id");
+  getProductsByCategoryId(category_id)
+      .then(function(products){
+        res.json({response_data: products});
+      })
+})
+router.get('/cn', function(req, res, next) {
+  getIndexResponse(res,"cn");
 });
 /* GET home page. */
 router.get('/en', function(req, res, next) {
