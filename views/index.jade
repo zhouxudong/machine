@@ -27,8 +27,9 @@ block content
       #nav_section_left
         ul
           each category,i in categorys
+            - var isFirst = i == 0;
             if(lg == "en")
-              li(data-id="#{category.id}" class=(#{i}==0 ? "active":"")) #{category.name_en}
+              li(data-id="#{category.id}" class=isFirst ? "active":"") #{category.name_en}
             else if(lg == 'es')
               li(data-id="#{category.id}") #{category.name_es}
             else
