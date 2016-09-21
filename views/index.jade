@@ -36,7 +36,7 @@ block content
           each product,i in products
             .item
               .bg_over
-                a(href="javascript:intoProduct(#{product.id})")
+                a(target="_blank" href="/product/#{product.id}")
                   img(src="http://47.89.186.41#{product.thumb}" width="180px" height="135px")
                 if(lg == "en")
                   p #{product.name_en}

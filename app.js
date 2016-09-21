@@ -8,6 +8,7 @@ var compression = require('compression')
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var product = require("./routes/product");
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use("/statics",express.static(path.join(__dirname, 'public')));
 app.use("/statics",express.static(path.join(__dirname, 'conf')));
 
 app.use('/', routes);
+app.use("/product", product);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
