@@ -19,7 +19,8 @@ $("#nav_section_left").on("click","li",function(){
                     allDom +=  [
                         '<div class="item">',
                         '   <div class="bg_over">',
-                        '       <img width="180px" height="135px" src="http://47.89.186.41'+item.thumb+'">',
+                        '       <a href="javascript: intoProduct('+item.id+')"',
+                        '       <img width="180px" height="135px" src="http://47.89.186.41'+item.thumb+'"></a>',
                         '       <p>'+item["name_" + lg] || item.name+'</p>',
                         '</div></div>'].join("");
                 }
