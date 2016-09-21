@@ -3,17 +3,13 @@ var category_module = require("./category");
 
 var getCategorySubs = category_module.getCategorySubs;
 
-var getCategoryList = function(pid){
-    var sql = `select * from category where parent_id = ${pid}`;
+var getProductById = function(product_id){
+    var sql = `select * from product where id = ${product_id}`;
 
-    return new Promise((resolve, reject) => {
-        try {
-            conn(sql, rows => {
-                resolve(rows);
-            })
-        }catch (e){
-            reject({error: 123})
-        }
+    return new Promise( (resolve, reject) => {
+        conn(sql, rows => {
+            resolve(rows[0]);
+        })
     })
 }
 
@@ -34,6 +30,6 @@ var getProductsByCategoryId = function(category_id){
 }
 
 module.exports = {
-    getCategoryList,
+    getProductById,
     getProductsByCategoryId
 }
