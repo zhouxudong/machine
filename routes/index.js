@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var product_module = require("../module/product");
 var category_module = require("../module/category");
-var API = require("../conf/API");
 
 var getALLCategorys = category_module.getALLCategorys;
 var getCategorySubs = category_module.getCategorySubs;
@@ -20,7 +19,6 @@ var getIndexResponse = function (res,language){
         response_data["categorys"] = callbacks[0];
         response_data["products"] = callbacks[1];
         response_data["lg"] = language;
-        response_data["api"] = API;
         res.render("index",response_data);
     }).catch(function(){
         res.json({error_code:123})
