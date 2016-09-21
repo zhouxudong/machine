@@ -17,9 +17,11 @@ router.get("/:id", (req, res, next) => {
         response_data['title'] = "Best CHINA machine";
         response_data["categorys"] = callbacks[0];
         response_data["product"] = callbacks[1];
-        response_data["lg"] = language;
+        response_data["lg"] = "en";
         res.render("product",response_data);
     }).catch(function(){
+        console.log("error msg");
+        console.log(arguments);
         res.json({error_code:123})
     })
 })

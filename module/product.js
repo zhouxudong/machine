@@ -6,10 +6,17 @@ var getCategorySubs = category_module.getCategorySubs;
 var getProductById = function(product_id){
     var sql = `select * from product where id = ${product_id}`;
 
+    console.log(sql);
     return new Promise( (resolve, reject) => {
-        conn(sql, rows => {
-            resolve(rows[0]);
-        })
+        try{
+            conn(sql, rows => {
+                console.log(rows);
+                resolve(rows[0]);
+            })
+        }catch (e){
+            reject({error:"db fail"});
+        }
+
     })
 }
 
