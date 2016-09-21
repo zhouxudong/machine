@@ -1,5 +1,40 @@
 extends layout
 
 block content
+    - var lang = lg == "en" ? "name_en" : (lg == "es" ? "name_es" : "name");
     #page
-        p helloworld
+        #header
+            img(src="/statics/images/logo.png")
+        #content.clearfix
+            #nav_section_top
+                ul.fist_level.clearfix
+                    li ABOUT US
+                    li PRODUCTS
+                        div.category
+                            ul.second_level
+                                each category,i in categorys
+                                    if(lg == "en")
+                                        li #{category.name_en}
+                                    else if(lg == 'es')
+                                        li #{category.name_es}
+                                    else
+                                        li #{category.name}
+
+                    li NEWS
+                    li SOLUTION
+                    li CONTACT US
+            #banner
+                img(src="/statics/images/2.jpg")
+            #nav_section_left
+                ul
+                    each category,i in categorys
+                        - var isFirst = i == 0;
+                        li(data-id="#{category.id}" class=isFirst ? "active" : "") #{category[lang]}
+            #main
+                img(src="/statics/images/bq_products.png")
+                p #{product[lang]}
+                img( src = "http://47.89.186.41#{product.thumb}")
+                if(lg == "en")
+                    div #{product['descript_en']}
+                else
+                    div #{product['descript_es']}
