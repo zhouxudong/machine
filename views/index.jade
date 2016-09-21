@@ -28,7 +28,7 @@ block content
         ul
           each category,i in categorys
             if(lg == "en")
-              li(data-id="#{category.id}" class='#{i}==0?"active":""') #{category.name_en}
+              li(data-id="#{category.id}" class=#{i}==0?"active":"") #{category.name_en}
             else if(lg == 'es')
               li(data-id="#{category.id}") #{category.name_es}
             else
