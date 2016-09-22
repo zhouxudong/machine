@@ -20,9 +20,7 @@ router.get("/:id", (req, res, next) => {
         response_data["lg"] = "en";
         res.render("product",response_data);
     }).catch(function(){
-        console.log("error msg");
-        console.log(arguments);
-        res.json({error_code:123})
+        res.json({error_msg:arguments})
     })
 })
 module.exports = router;
