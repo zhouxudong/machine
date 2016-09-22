@@ -31,7 +31,7 @@ block content
                 img( src = "http://47.89.186.41#{product.bigThumb}")
                 if(lg == "en")
                     - var description = product['descript_en'].replace(/\r/g,"<br>");
-                    div #{description}
+                    div!= #{description}
                 else
                     - var description = product['descript_en'].replace(/\r/g,"<br>");
                     div description
