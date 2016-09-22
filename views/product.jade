@@ -32,7 +32,7 @@ block content
                 if(lg == "en")
                     - var description = product['descript_en'].replace(/\r/g,"<br>");
                     div
-                        != #{description}
+                        != '#{description}'
                 else
                     - var description = product['descript_en'].replace(/\r/g,"<br>");
                     div description
