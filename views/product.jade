@@ -33,8 +33,13 @@ block content
             #main
                 img(src="/statics/images/bq_products.png")
                 p #{product[lang]}
-                img( src = "http://47.89.186.41#{product.thumb}")
+                img( src = "http://47.89.186.41#{product.bigThumb}")
                 if(lg == "en")
-                    div #{product['descript_en']}
+                    - var description = product['descript_en'];
+                    - description = description.replace(/\r/g,"<br>");
+                    div description
                 else
+                    - var description = product['descript_en'];
+                    - description = description.replace(/\r/g,"<br>");
+                    div description
                     div #{product['descript_es']}
