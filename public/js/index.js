@@ -22,7 +22,7 @@ $("#nav_section_left").on("click","li",function(){
                         '       <a target="_blank" href="/product/'+item.id+'">',
                         '           <img width="180px" height="135px" src="http://47.89.186.41'+item.thumb+'">',
                         '       </a>',
-                        '       <p>'+item["name_" + lg] || item.name+'</p>',
+                        '       <p>'+(item["name_" + lg] || item.name)+'</p>',
                         '</div></div>'].join("");
                 }
 
