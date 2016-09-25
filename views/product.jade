@@ -12,7 +12,7 @@ block content
             #main
                 .productInfo.productList
                     p.tit #{product[lang]}
-                    .product_thumb
+                    .product_thumb.mb20
                         img( src = "http://bestchinamachine.net:3000#{product.bigThumb}")
                     if(lg == "en")
                         - var description = product['descript_en'].replace(/\r/g,"<br>");
