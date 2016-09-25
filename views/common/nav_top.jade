@@ -8,10 +8,10 @@
                 ul.second_level
                     each category,i in categorys
                         if(lg == "en")
-                            li
+                            li(data-id="#{category.id}")
                                 a(href="#") #{category.name_en}
                         else
-                            li
+                            li(data-id="#{category.id}")
                                 a(href="#") #{category.name_es}
         li
             a(href="#") NEWS

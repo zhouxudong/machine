@@ -1,4 +1,4 @@
-$("#nav_section_left").on("click","li",function(){
+$("#nav_section_left, #nav_section_top .category").on("click","li",function(){
     var id = $(this).data("id");
     $("#nav_section_left li").removeClass("active");
     $(this).addClass("active");
