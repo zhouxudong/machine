@@ -6,21 +6,25 @@ block content
     #content.clearfix
       #nav_section_top
         ul.fist_level.clearfix
-          li ABOUT US
-          li PRODUCTS
-            div.category
-              ul.second_level
-                each category,i in categorys
-                  if(lg == "en")
-                    li #{category.name_en}
-                  else if(lg == 'es')
-                    li #{category.name_es}
-                  else
-                    li #{category.name}
-
-          li NEWS
-          li SOLUTION
-          li CONTACT US
+          li
+            a(href="#") ABOUT US
+          li
+            a(href="#") PRODUCTS
+              div.category
+                ul.second_level
+                  each category,i in categorys
+                    if(lg == "en")
+                      li #{category.name_en}
+                    else if(lg == 'es')
+                      li #{category.name_es}
+                    else
+                      li #{category.name}
+          li
+            a(href="#") NEWS
+          li
+            a(href="#") SOLUTION
+          li
+            a(href="#") CONTACT US
       #banner
         img(src="/statics/images/2.jpg")
       #nav_section_left
