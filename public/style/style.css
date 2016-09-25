@@ -43,7 +43,7 @@ p{padding:0;margin:0;}
   width: 150px;
   position:relative;
 }
-#nav_section_top .fist_level > li > a:hover{
+#nav_section_top .fist_level > li:hover > a{
   display: inline-block;
   width: 100%;
   height: 100%;
