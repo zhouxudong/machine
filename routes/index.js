@@ -19,7 +19,7 @@ var getIndexResponse = function (res,language){
         response_data["categorys"] = callbacks[0];
         response_data["products"] = callbacks[1];
         response_data["lg"] = language;
-        res.cookie('language', language, { domain:".bestchinamachine.net",expires: new Date(Date.now() + 900000)});
+        res.cookie('language', language, { domain:".bestchinamachine.net",expires: new Date(Date.now() + 2700000)});
         res.render("index",response_data);
     }).catch(function(){
         res.json({error_code:123})
