@@ -1,0 +1,6 @@
+#nav_section_left
+    ul
+        each category,i in categorys
+            - var isFirst = i == 0;
+            - var lang = lg == "en" ? "name_en" : (lg == "es" ? "name_es" : "name");
+            li(data-id="#{category.id}" class=isFirst ? "active":"") #{category[lang]}
