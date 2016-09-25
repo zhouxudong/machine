@@ -115,7 +115,8 @@ p{padding:0;margin:0;}
 }
 
 #nav_section_left li.active {
-  background-image:url("/statics/images/dian2.png");
+  background:url("/statics/images/left1.png") no-repeat 0 0;
+  color: #FFF;
 }
 
 #main {
