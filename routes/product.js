@@ -9,7 +9,8 @@ var getProductById = product_module.getProductById;
 router.get("/:id", (req, res, next) => {
 
     var id = req.params.id;
-    var cookies = req.cookie;
+    var cookies = req.headers.cookie;
+    console.log("cookie");
     console.log(cookies);
     Promise.all([
         getCategoryList(0),
