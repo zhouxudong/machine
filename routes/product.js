@@ -11,7 +11,7 @@ router.get("/:id", (req, res, next) => {
     var id = req.params.id;
     var cookies = {};
     console.log("cookie");
-    req.headers.cookie.split(";").forEach(function( cookie ) => {
+    req.headers.cookie.split(";").forEach(function( cookie ) {
         var parts = cookie.split("=");
         cookies[parts[0].trim()] = (parts[1] || "").trim();
     })
