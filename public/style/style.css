@@ -63,6 +63,7 @@ p{padding:0;margin:0;}
 #nav_section_top .second_level > li {
   border: 1px solid tan;
   position:relative;
+  line-height: 25px;
 }
 #nav_section_top .second_level > li:hover > a{
   display: inline-block;
