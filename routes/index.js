@@ -26,7 +26,7 @@ var getIndexResponse = function (res,language){
     })
 }
 router.get('/', function(req, res, next) {
-  getIndexResponse(res,"cn");
+  getIndexResponse(res,"en");
 });
 router.get("/api/get_products", (req, res, next) => {
   var category_id = req.param("category_id");
