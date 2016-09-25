@@ -35,10 +35,13 @@ block content
                 .productInfo
                     p.tit #{product[lang]}
                     .product_thumb
-                        img( src = "http://47.89.186.41#{product.bigThumb}")
+                        img( src = "http://bestchinamachine.net:3000#{product.bigThumb}")
                     if(lg == "en")
                         - var description = product['descript_en'].replace(/\r/g,"<br>");
                         p.descrit!= description
                     else
                         - var description = product['descript_es'].replace(/\r/g,"<br>");
                         p.descrit!= description
+    input(type='hidden' id="currLg" value="#{lg}")
+    script(src="/statics/API.js")
+    script(src="/statics/js/index.js")
