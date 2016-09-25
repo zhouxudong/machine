@@ -25,6 +25,7 @@ router.get("/:id", (req, res, next) => {
         response_data["categorys"] = callbacks[0];
         response_data["product"] = callbacks[1];
         response_data["lg"] = cookies.language;
+        response_data['cate_id'] = id;
         res.render("product",response_data);
     }).catch(function(){
         res.json({error_msg:arguments})
