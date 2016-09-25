@@ -14,7 +14,7 @@ block content
           each product,i in products
             .item
               .bg_over
-                a(target="_blank" href="/product/#{product.id}")
+                a(href="/product/#{product.id}")
                   img(src="http://bestchinamachine.net:3000#{product.thumb}" width="180px" height="135px")
                 if(lg == "en")
                   p #{product.name_en}

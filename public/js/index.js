@@ -19,7 +19,7 @@ $("#nav_section_left").on("click","li",function(){
                     allDom +=  [
                         '<div class="item">',
                         '   <div class="bg_over">',
-                        '       <a target="_blank" href="/product/'+item.id+'">',
+                        '       <a href="/product/'+item.id+'">',
                         '           <img width="180px" height="135px" src="http://bestchinamachine.net:3000'+item.thumb+'">',
                         '       </a>',
                         '       <p>'+(item["name_" + lg] || item.name)+'</p>',
