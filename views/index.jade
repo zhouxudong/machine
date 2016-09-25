@@ -4,27 +4,7 @@ block content
   #page
     include common/header
     #content.clearfix
-      #nav_section_top
-        ul.fist_level.clearfix
-          li
-            a(href="#") ABOUT US
-          li
-            a(href="#") PRODUCTS
-              div.category
-                ul.second_level
-                  each category,i in categorys
-                    if(lg == "en")
-                      li #{category.name_en}
-                    else if(lg == 'es')
-                      li #{category.name_es}
-                    else
-                      li #{category.name}
-          li
-            a(href="#") NEWS
-          li
-            a(href="#") SOLUTION
-          li
-            a(href="#") CONTACT US
+      include common/nav_top
       #banner
         img(src="/statics/images/2.jpg")
       #nav_section_left
