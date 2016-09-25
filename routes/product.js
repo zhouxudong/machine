@@ -9,9 +9,13 @@ var getProductById = product_module.getProductById;
 router.get("/:id", (req, res, next) => {
 
     var id = req.params.id;
-    var cookies = req.headers.cookie;
+    var cookies = {};
     console.log("cookie");
-    console.log(cookies);
+    req.headers.cookie.split(";").forEach(function( cookie ) => {
+        var parts = cookie.split("=");
+        cookies[parts[0].trim()] = (parts[1] || "").trim();
+    })
+    console.log(cookies) ;
     Promise.all([
         getCategoryList(0),
         getProductById(id)
@@ -20,7 +24,7 @@ router.get("/:id", (req, res, next) => {
         response_data['title'] = "Best CHINA machine";
         response_data["categorys"] = callbacks[0];
         response_data["product"] = callbacks[1];
-        response_data["lg"] = "en";
+        response_data["lg"] = cookies.language;
         res.render("product",response_data);
     }).catch(function(){
         res.json({error_msg:arguments})
