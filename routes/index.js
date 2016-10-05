@@ -19,7 +19,8 @@ var getIndexResponse = function (res,language){
         response_data["categorys"] = callbacks[0];
         response_data["products"] = callbacks[1];
         response_data["lg"] = language;
-        res.cookie('language', language, { domain:".bestchinamachine.net",expires: new Date(Date.now() + 2592000000)});
+        //res.cookie('language', language, { domain:".bestchinamachine.net",expires: new Date(Date.now() + 2592000000)});
+        res.cookie('language', language, { expires: new Date(Date.now() + 2592000000)});
         res.render("index",response_data);
     }).catch(function(){
         res.json({error_code:123})
@@ -33,6 +34,9 @@ router.get("/api/get_products", (req, res, next) => {
   getProductsByCategoryId(category_id)
       .then(function(products){
         res.json({response_data: products});
+      })
+      .catch(function(){
+          res.json({error: "request fail"})
       })
 })
 router.get('/cn', function(req, res, next) {

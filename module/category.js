@@ -1,4 +1,7 @@
 var conn = require("./dbconn");
+//var product_module = require("./product");
+
+//var getProductById = product_module.getProductById;
 
 //获取pid 的子集分类
 var getCategoryList = function(pid){
@@ -15,6 +18,7 @@ var getCategoryList = function(pid){
     })
 }
 
+//获取搜有categorys
 var getALLCategorys = () => {
     var sql = "select id,name,parent_id from category";
 
@@ -29,6 +33,41 @@ var getALLCategorys = () => {
     })
 
 }
+//获取最顶级分类Id by  product_id
+var getCateIDByProductID = function(product_id){
+    console.log("getCateIDByProductID___ product: " + product_id)
+    return new Promise( (resolve, reject) => {
+
+        Promise.all([
+            getProductById(product_id),
+            getALLCategorys()
+        ]).then(function(callback){
+            var categorys = callback[1].data;
+            var product = callback[0];
+            var category_id = product.pid;
+            (function(categorys,category_id,resolve){
+                var callFn = arguments.callee;
+
+                categorys.forEach(function (category) {
+                    if(category.id == category_id){
+                        cateP_id = category.parent_id;
+                        if(category.parent_id == 0){
+                            resolve(category_id)
+                        }else {
+                            callFn(categorys,category.parent_id,resolve);
+                        }
+                    }
+                })
+            })(categorys,category_id,resolve)
+
+        }).catch(function(){
+            console.log(arguments)
+            reject({error:arguments})
+        })
+    })
+}
+
+//获取分类下的所有子孙级分类
 var getCategorySubs = function(category_id) {
 
     //循环所有分类 获取 所有 父ID 为category_id 的分类 =》 获取category_id 的所有子分类
@@ -67,5 +106,6 @@ var getCategorySubs = function(category_id) {
 module.exports = {
     getALLCategorys,
     getCategorySubs,
-    getCategoryList
+    getCategoryList,
+    getCateIDByProductID
 }
