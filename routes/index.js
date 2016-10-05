@@ -27,7 +27,15 @@ var getIndexResponse = function (res,language){
     })
 }
 router.get('/', function(req, res, next) {
-  getIndexResponse(res,"en");
+
+    var cookies = {};
+    console.log("cookie");
+    req.headers.cookie && req.headers.cookie.split(";").forEach(function( cookie ) {
+        var parts = cookie.split("=");
+        cookies[parts[0].trim()] = (parts[1] || "").trim();
+    })
+    console.log(cookies) ;
+    getIndexResponse(res,cookies.language || "en");
 });
 router.get("/api/get_products", (req, res, next) => {
   var category_id = req.param("category_id");
@@ -50,5 +58,30 @@ router.get('/en', function(req, res, next) {
 router.get('/es', function(req, res, next) {
   getIndexResponse(res,"es");
 });
+
+/*GET ABOUT US */
+router.get("/aboutus", function(req, res, next){
+    var cookies = {};
+    console.log("cookie");
+    req.headers.cookie && req.headers.cookie.split(";").forEach(function( cookie ) {
+        var parts = cookie.split("=");
+        cookies[parts[0].trim()] = (parts[1] || "").trim();
+    })
+    console.log(cookies) ;
+
+    Promise.all([
+        getCategoryList(0),
+        //getProductsByCategoryId(2)
+    ]).then(function(callbacks){
+        var response_data = {};
+        response_data['title'] = "Best CHINA machine";
+        response_data["categorys"] = callbacks[0];
+        //response_data["products"] = callbacks[1];
+        response_data["lg"] = cookies.language;
+        res.render("aboutus",response_data);
+    }).catch(function(){
+        res.json({error_code:123})
+    })
+})
 
 module.exports = router;
