@@ -3,6 +3,7 @@ var category_module = require("./category");
 
 var getCategorySubs = category_module.getCategorySubs;
 
+//获取产品信息 根据 product_ID
 var getProductById = function(product_id){
     var sql = `select * from product where id = ${product_id}`;
 
@@ -20,8 +21,10 @@ var getProductById = function(product_id){
     })
 }
 
+//获取分类下的所有产品
 var getProductsByCategoryId = function(category_id){
 
+    console.log("getProductsByCategoryId" + category_id);
     return new Promise((resolve, reject) => {
         getCategorySubs(category_id)
             .then(function(categoryArr){
@@ -31,6 +34,10 @@ var getProductsByCategoryId = function(category_id){
                 conn(sql, rows => {
                     resolve(rows);
                 })
+            })
+            .catch(function(){
+                console.log(arguments);
+                reject({error: "db fail"});
             })
     })
 
