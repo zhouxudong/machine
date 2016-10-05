@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var product_module = require("../module/product");
 var category_module = require("../module/category");
+var common_module = require("../module/common")
 
 var getALLCategorys = category_module.getALLCategorys;
 var getCategorySubs = category_module.getCategorySubs;
@@ -58,16 +59,37 @@ router.get('/en', function(req, res, next) {
 router.get('/es', function(req, res, next) {
   getIndexResponse(res,"es");
 });
-
-/*GET ABOUT US */
-router.get("/aboutus", function(req, res, next){
-    var cookies = {};
-    console.log("cookie");
-    req.headers.cookie && req.headers.cookie.split(";").forEach(function( cookie ) {
-        var parts = cookie.split("=");
-        cookies[parts[0].trim()] = (parts[1] || "").trim();
+/* GET CONTACT us*/
+router.get("/contactus", function(req, res, next){
+    var cookies = common_module.getCookies();
+    getCategoryList(0)
+        .then(function(categorys){
+            var response_data = {};
+            response_data['title'] = "Best CHINA machine";
+            response_data["categorys"] = categorys;
+            response_data["lg"] = cookies.language;
+            res.render("contactus",response_data);
+        }).catch(function(){
+        res.json({error_code:123})
     })
-    console.log(cookies) ;
+})
+/* GET SERVICE */
+router.get("/service", function(req, res, next){
+    var cookies = common_module.getCookies();
+    getCategoryList(0)
+    .then(function(categorys){
+        var response_data = {};
+        response_data['title'] = "Best CHINA machine";
+        response_data["categorys"] = categorys;
+        response_data["lg"] = cookies.language;
+        res.render("service",response_data);
+    }).catch(function(){
+        res.json({error_code:123})
+    })
+})
+/* GET ABOUT US */
+router.get("/aboutus", function(req, res, next){
+    var cookies = common_module.getCookies();
 
     Promise.all([
         getCategoryList(0),
