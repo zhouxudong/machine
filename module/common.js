@@ -1,5 +1,5 @@
 
-var getCookies = function(){
+var getCookies = function(req){
     var cookies = {};
     req.headers.cookie && req.headers.cookie.split(";").forEach(function( cookie ) {
         var parts = cookie.split("=");

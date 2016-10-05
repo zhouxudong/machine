@@ -29,13 +29,7 @@ var getIndexResponse = function (res,language){
 }
 router.get('/', function(req, res, next) {
 
-    var cookies = {};
-    console.log("cookie");
-    req.headers.cookie && req.headers.cookie.split(";").forEach(function( cookie ) {
-        var parts = cookie.split("=");
-        cookies[parts[0].trim()] = (parts[1] || "").trim();
-    })
-    console.log(cookies) ;
+    var cookies = common_module.getCookies(req);
     getIndexResponse(res,cookies.language || "en");
 });
 router.get("/api/get_products", (req, res, next) => {
@@ -61,7 +55,7 @@ router.get('/es', function(req, res, next) {
 });
 /* GET CONTACT us*/
 router.get("/contactus", function(req, res, next){
-    var cookies = common_module.getCookies();
+    var cookies = common_module.getCookies(req);
     getCategoryList(0)
         .then(function(categorys){
             var response_data = {};
@@ -75,7 +69,7 @@ router.get("/contactus", function(req, res, next){
 })
 /* GET SERVICE */
 router.get("/service", function(req, res, next){
-    var cookies = common_module.getCookies();
+    var cookies = common_module.getCookies(req);
     getCategoryList(0)
     .then(function(categorys){
         var response_data = {};
@@ -89,7 +83,7 @@ router.get("/service", function(req, res, next){
 })
 /* GET ABOUT US */
 router.get("/aboutus", function(req, res, next){
-    var cookies = common_module.getCookies();
+    var cookies = common_module.getCookies(req);
 
     Promise.all([
         getCategoryList(0),
