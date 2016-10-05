@@ -124,6 +124,9 @@ p{padding:0;margin:0;}
   vertical-align: top;
   overflow: hidden;
 }
+.aboutus{
+  font-style: 16px;
+}
 
 .productList .item {
   display: inline-block;
