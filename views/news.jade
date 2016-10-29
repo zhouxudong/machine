@@ -10,6 +10,7 @@ block content
             include common/nav_left
             #main
                 .productInfo.news
+                    h3 新闻列表：
                     each news_item,i in news
                         .new_item.clearfix
                             a(href='/news/#{news_item.id}').fl #{news_item.title}
