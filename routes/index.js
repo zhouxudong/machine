@@ -2,12 +2,15 @@ var express = require('express');
 var router = express.Router();
 var product_module = require("../module/product");
 var category_module = require("../module/category");
-var common_module = require("../module/common")
+var common_module = require("../module/common");
+var news_module = require("../module/news");
 
 var getALLCategorys = category_module.getALLCategorys;
 var getCategorySubs = category_module.getCategorySubs;
 var getCategoryList = category_module.getCategoryList;
 var getProductsByCategoryId = product_module.getProductsByCategoryId;
+var getNewsList = news_module.getNewsList;
+var getNewsInfo = news_module.getNewsInfo;
 
 var getIndexResponse = function (res,language){
 
@@ -96,6 +99,45 @@ router.get("/aboutus", function(req, res, next){
         response_data["lg"] = cookies.language;
         res.render("aboutus",response_data);
     }).catch(function(){
+        res.json({error_code:123})
+    })
+})
+
+/* GET NEWS INFO*/
+router.get("/news", function(req, res, next){
+    var cookies = common_module.getCookies(req);
+
+    Promise.all([
+        getCategoryList(0),
+        getNewsList()
+    ]).then(function(callbacks){
+        var response_data = {};
+        response_data['title'] = "Best CHINA machine";
+        response_data["categorys"] = callbacks[0];
+        response_data["news"] = callbacks[1];
+        response_data["lg"] = cookies.language;
+        res.render("news",response_data);
+    }).catch(function(e){
+        console.log(e);
+        res.json({error_code:123})
+    })
+})
+/*new info*/
+router.get("/news/:id", function(req, res, next){
+    var cookies = common_module.getCookies(req);
+    var id = req.params.id;
+    Promise.all([
+        getCategoryList(0),
+        getNewsInfo(id)
+    ]).then(function(callbacks){
+        var response_data = {};
+        response_data['title'] = "Best CHINA machine";
+        response_data["categorys"] = callbacks[0];
+        response_data["newinfo"] = callbacks[1];
+        response_data["lg"] = cookies.language;
+        res.render("newinfo",response_data);
+    }).catch(function(e){
+        console.log(e);
         res.json({error_code:123})
     })
 })

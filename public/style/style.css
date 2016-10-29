@@ -128,6 +128,12 @@ p{padding:0;margin:0;}
   font-size: 16px;
 }
 
+.new_item {
+  background-color: #efefef;
+  padding: 10px 20px;
+  color: #2050e8;
+}
+
 .productList .item {
   display: inline-block;
   margin: 0 25px 20px;
